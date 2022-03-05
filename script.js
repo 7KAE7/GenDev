@@ -25,45 +25,55 @@ const getRandom ={
 };
 //function that generates random password
 function generatePassword(lower,upper,number,symbol,length){
-	var randomPassword;
-	var password=[];
-	var password1, password2,password3,password4;
-	var generatedPassword='';
+	let randomPassword;
+	let password=[];
+	let password1;
+	let password2;
+	let password3;
+	let password4;
+	let generatedPassword='';
 		// if nothing is selected, nothing will show up up in result box
-		/*if(upper && lower && number && symbol == false) {
-			return;
-		}*/
-		//if else statements that controls what should be included based on criteria selected
-		if(lower==true){
-			//stores the values from property lower in a variable
-			password1 = Object.values(getRandom.lower);
-			password=password.concat(password1);	
-		}
-		if(upper==true){
-			//stores the values from property upper in a variable
-			password2 = Object.values(getRandom.upper);
-			password=password.concat(password2);	
-		}
-		if(number==true){
-			//stores the values from property number in a variable
-			 password3 = Object.values(getRandom.number);
-			 password=password.concat(password3);	
-		}
-		if(symbol==true){
-			//stores the values from property symbol in a variable
-			password4 = Object.values(getRandom.symbol);
-			password=password.concat(password4);
-		}
-		//uses for loop to run the loop according to length selected and randomly choose values from password variable
-		for(let i=0; i<length; i++){
-			randomPassword= password[Math.floor(Math.random()*password.length)];
-			generatedPassword+=randomPassword;
+		//if upper is false & number is false & lower is false and symbol is false 
+		if(upper || lower || number || symbol) {
 			
-		}
-       //console.log("value: ", generatedPassword);
 
-	return generatedPassword;
+			//if else statements that controls what should be included based on criteria selected
+			if(lower){
+				//stores the values from property lower in a variable
+				password1 = Object.values(getRandom.lower);
+				password=password.concat(password1);	
+			}
 
+			if(upper){
+				//stores the values from property upper in a variable
+				password2 = Object.values(getRandom.upper);
+				password=password.concat(password2);	
+			}
+
+			if(number){
+				//stores the values from property number in a variable
+				password3 = Object.values(getRandom.number);
+				password=password.concat(password3);	
+			}
+
+			if(symbol){
+				//stores the values from property symbol in a variable
+				password4 = Object.values(getRandom.symbol);
+				password=password.concat(password4);
+			}
+
+			//uses for loop to run the loop according to length selected and randomly choose values from password variable
+			for(let i=0; i<length; i++){
+				randomPassword= password[Math.floor(Math.random()*password.length)];
+				generatedPassword+=randomPassword;
+				
+			}
+			//console.log("value: ", generatedPassword);
+
+		return generatedPassword;
+	}else{
+		return generatedPassword= '';
+	}
 
 }
 
