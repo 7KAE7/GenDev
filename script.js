@@ -27,10 +27,10 @@ const getRandom ={
 function generatePassword(lower,upper,number,symbol,length){
 	let randomPassword;
 	let password=[];
-	let password1;
-	let password2;
-	let password3;
-	let password4;
+	let lower1;
+	let upper2;
+	let number2;
+	let symbol1;
 	let generatedPassword='';
 		// if nothing is selected, nothing will show up up in result box
 		//if upper is false & number is false & lower is false and symbol is false 
@@ -40,26 +40,26 @@ function generatePassword(lower,upper,number,symbol,length){
 			//if else statements that controls what should be included based on criteria selected
 			if(lower){
 				//stores the values from property lower in a variable
-				password1 = Object.values(getRandom.lower);
-				password=password.concat(password1);	
+				lower1 = Object.values(getRandom.lower);
+				password=password.concat(lower1);	
 			}
 
 			if(upper){
 				//stores the values from property upper in a variable
-				password2 = Object.values(getRandom.upper);
-				password=password.concat(password2);	
+				upper2 = Object.values(getRandom.upper);
+				password=password.concat(upper2);	
 			}
 
 			if(number){
 				//stores the values from property number in a variable
-				password3 = Object.values(getRandom.number);
-				password=password.concat(password3);	
+				number2 = Object.values(getRandom.number);
+				password=password.concat(number2);	
 			}
 
 			if(symbol){
 				//stores the values from property symbol in a variable
-				password4 = Object.values(getRandom.symbol);
-				password=password.concat(password4);
+				symbol1 = Object.values(getRandom.symbol);
+				password=password.concat(symbol1);
 			}
 
 			//uses for loop to run the loop according to length selected and randomly choose values from password variable
